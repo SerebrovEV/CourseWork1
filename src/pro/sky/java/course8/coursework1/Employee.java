@@ -6,7 +6,8 @@ public class Employee {
     private String secondName;
     private int departmentName;
     private int salary;
-    private static int id = 1;
+    private int id;
+    private static int numberId = 0;
 
     public Employee(String surname, String name, String secondName, int departmentName, int salary) {
         this.surname = surname;
@@ -14,19 +15,11 @@ public class Employee {
         this.secondName = secondName;
         this.departmentName = departmentName;
         this.salary = salary;
-        this.id++;
+        this.id = ++numberId;
     }
 
-    public String getSurname() {
-        return surname;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getSecondName() {
-        return secondName;
+    public String getFio() {
+        return surname + " " + name +  " " + secondName;
     }
 
     public int getDepartmentName() {
@@ -55,10 +48,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Сотрудник" + "Фамилия: " + surname + ", Имя: '" + name + '\'' +
-                ", Отчество='" + secondName + '\'' +
-                ", Номер отдела: " + departmentName +
-                ", Оклад: " + salary +
-                '}';
+        return "Сотрудник: ФИО: " + surname + " " + name + " " + secondName +
+                ". Id: " + id + ". Номер отдела: " + departmentName + ". Оклад: " + salary + ".";
     }
 }
