@@ -5,7 +5,7 @@ public class Employee {
     private String name;
     private String secondName;
     private int departmentName;
-    private int salary;
+    private double salary;
     private int id;
     private static int numberId = 0;
 
@@ -26,7 +26,7 @@ public class Employee {
         return departmentName;
     }
 
-    public int getSalary() {
+    public double getSalary() {
         return salary;
     }
 
@@ -34,7 +34,7 @@ public class Employee {
         return id;
     }
 
-    public void setDepartmentName() {
+    public void setDepartmentName(int departmentName) {
         if (departmentName > 0 && departmentName < 6) {
             this.departmentName = departmentName;
         } else {
@@ -42,7 +42,7 @@ public class Employee {
         }
     }
 
-    public void setSalary() {
+    public void setSalary(double salary) {
         this.salary = salary;
     }
 

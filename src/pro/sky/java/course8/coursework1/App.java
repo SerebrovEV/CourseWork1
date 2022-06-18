@@ -15,6 +15,7 @@ public class App {
         Employees[8] = new Employee("Karpunova", "Anna", "Andreevna", 5, 480_000);
         Employees[9] = new Employee("Serebrova", "Natalia", "Sergeevna", 2, 460_000);
         basicTask();
+        harderTask();
 
     }
 
@@ -33,7 +34,7 @@ public class App {
     }
 
     private static String minSalaryFio() {
-        int minSalary = 1_000_000;
+        double minSalary = 1_000_000;
         String employeeFio = null;
         for (int i = 0; i < Employees.length; i++) {
             if (minSalary > Employees[i].getSalary()) {
@@ -45,7 +46,7 @@ public class App {
     }
 
     private static String maxSalaryFio() {
-        int maxSalary = 0;
+        double maxSalary = 0;
         String employeeFio = null;
         for (int i = 0; i < Employees.length; i++) {
             if (maxSalary < Employees[i].getSalary()) {
@@ -57,13 +58,13 @@ public class App {
     }
 
     private static double midSalary() {
-        double midSalary =(double) allMonthSalary() / Employees.length;
+        double midSalary = (double) allMonthSalary() / Employees.length;
         return midSalary;
     }
 
     private static void getFioEmployees() {
         for (int i = 0; i < Employees.length; i++) {
-            System.out.println("Ф.И.О. " + (i+1) + ": " + Employees[i].getFio());
+            System.out.println("Ф.И.О. " + (i + 1) + ": " + Employees[i].getFio());
 
         }
     }
@@ -74,9 +75,20 @@ public class App {
         System.out.println("Общая сумма затрат на зарплату работников составляет " + allMonthSalary() + " рублей в месяц."); //b
         System.out.println("Сотрудник с минимальной зарплатой: " + minSalaryFio() + "."); //с
         System.out.println("Сотрудник с максимальной зарплатой: " + maxSalaryFio() + "."); //d
-        System.out.println("Средняя зарплата сотрудников равна " + midSalary()  + "рублей."); //e
+        System.out.println("Средняя зарплата сотрудников равна " + midSalary() + "рублей."); //e
         getFioEmployees(); //f
+    }
 
+    private static void increaseSalary(double percent) {
+        for (int i = 0; i < Employees.length; i++) {
+            double increase = Employees[i].getSalary() + Employees[i].getSalary() * (percent / 100);
+            Employees[i].setSalary(increase);
+        }
+    }
 
+    private static void harderTask() {
+        double percent = 10;
+        increaseSalary(percent);
+        printEmployee();
     }
 }
