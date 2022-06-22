@@ -24,6 +24,16 @@ public class Employee {
         return surname + " " + name + " " + secondName;
     }
 
+    public String getSurname() {
+        return surname;
+    }
+    public String getName() {
+        return name;
+    }
+    public String getSecondName() {
+        return secondName;
+    }
+
     public int getDepartmentName() {
         return departmentName;
     }
@@ -65,7 +75,7 @@ public class Employee {
         if (this == o) return true;
         if (!(o instanceof Employee)) return false;
         Employee employee = (Employee) o;
-        return id == employee.id && surname.equals(employee.surname) && name.equals(employee.name) && secondName.equals(employee.secondName);
+        return surname.equals(employee.surname) && name.equals(employee.name) && secondName.equals(employee.secondName);
     }
 
     @Override

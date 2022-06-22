@@ -2,9 +2,10 @@ package pro.sky.java.course8.coursework1;
 
 public class App {
 
-private static final EmployeeBook EMPLOYEE_BOOK = new EmployeeBook();
+    private static final EmployeeBook EMPLOYEE_BOOK = new EmployeeBook();
+
     public static void main(String[] args) {
-       EMPLOYEE_BOOK.addEmployee("Serebrov", "Eugene", "Vladimirovich", 1, 100_000);
+        EMPLOYEE_BOOK.addEmployee("Serebrov", "Eugene", "Vladimirovich", 1, 100_000);
         EMPLOYEE_BOOK.addEmployee("Smirnov", "Denis", "Borisovich", 2, 200_000);
         EMPLOYEE_BOOK.addEmployee("Baranov", "Maxim", "Olegovich", 4, 250_000);
         EMPLOYEE_BOOK.addEmployee("Simonov", "Artem", "Vladimirovich", 5, 100_000);
@@ -16,16 +17,16 @@ private static final EmployeeBook EMPLOYEE_BOOK = new EmployeeBook();
         EMPLOYEE_BOOK.addEmployee("Serebrova", "Natalia", "Sergeevna", 2, 560_000);
 
 
-
-       // basicTask();
-       // harderTask();
+        basicTask();
+        harderTask();
         theHardestTask();
 
 
     }
+
     public static void basicTask() {
         ; //a
-        System.out.println("Общая сумма затрат на зарплату работников составляет " +  EMPLOYEE_BOOK.allMonthSalary() + " рублей в месяц."); //b
+        System.out.println("Общая сумма затрат на зарплату работников составляет " + EMPLOYEE_BOOK.allMonthSalary() + " рублей в месяц."); //b
         System.out.println("Сотрудник с минимальной зарплатой: " + EMPLOYEE_BOOK.minSalaryFio() + "."); //с
         System.out.println("Сотрудник с максимальной зарплатой: " + EMPLOYEE_BOOK.maxSalaryFio() + "."); //d
         System.out.println("Средняя зарплата сотрудников равна " + EMPLOYEE_BOOK.midSalary() + "рублей."); //e
@@ -55,13 +56,15 @@ private static final EmployeeBook EMPLOYEE_BOOK = new EmployeeBook();
 
     private static void theHardestTask() {
 
-        EMPLOYEE_BOOK.deleteEmployee("Serebrov Eugen Vladimirovich",1);
+        EMPLOYEE_BOOK.deleteEmployeeFio("Serebrov", "Eugene", "Vladimirovich");
+        EMPLOYEE_BOOK.deleteEmployeeId(2);
         EMPLOYEE_BOOK.addEmployee("Serebrova", "Natalia", "Sergeevna", 2, 560_000);
         EMPLOYEE_BOOK.printEmployee();
         EMPLOYEE_BOOK.changeSalary("Serebrova Natalia Sergeevna", 800_000);
-        System.out.println(EMPLOYEE_BOOK.salaryEmployee("Serebrova Natalia Sergeevna"));
-        EMPLOYEE_BOOK.changeDepartment("Karpunova Anna Andreevna",2);
-        EMPLOYEE_BOOK.printEmployeeDepartment(2);
+        System.out.println(EMPLOYEE_BOOK.salaryEmployee("Serebrova", "Natalia", "Sergeevna"));
+        EMPLOYEE_BOOK.changeDepartment("Karpunova Anna Andreevna", 2);
+       EMPLOYEE_BOOK.printEmployeeDepartment(2);
+       EMPLOYEE_BOOK.sortingEmployeeByDepartment();
 
     }
 }
