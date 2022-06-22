@@ -100,7 +100,7 @@ public class EmployeeBook {
     }
 
     public double midSalary() {
-        return (double) allMonthSalary() / EMPLOYEES.length;
+        return (double) allMonthSalary() / size;
     }
 
     public void getFioEmployees() {
@@ -251,12 +251,12 @@ public class EmployeeBook {
         return salaryEmployee;
     }
 
-    public void changeDepartment(String fio, int departmentName) {
+    public void changeDepartment(String surname, String name, String secondName, int departmentName) {
         for (Employee employee : EMPLOYEES) {
             if (employee == null) {
                 continue;
             }
-            if (fio.equals(employee.getFio())) {
+            if (surname.equals(employee.getSurname()) && name.equals(employee.getName()) && secondName.equals(employee.getSecondName())) {
                 employee.setDepartmentName(departmentName);
             }
         }

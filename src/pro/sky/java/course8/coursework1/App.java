@@ -62,7 +62,7 @@ public class App {
         EMPLOYEE_BOOK.printEmployee();
         EMPLOYEE_BOOK.changeSalary("Serebrova Natalia Sergeevna", 800_000);
         System.out.println(EMPLOYEE_BOOK.salaryEmployee("Serebrova", "Natalia", "Sergeevna"));
-        EMPLOYEE_BOOK.changeDepartment("Karpunova Anna Andreevna", 2);
+        EMPLOYEE_BOOK.changeDepartment("Karpunova", "Anna", "Andreevna", 2);
        EMPLOYEE_BOOK.printEmployeeDepartment(2);
        EMPLOYEE_BOOK.sortingEmployeeByDepartment();
 
