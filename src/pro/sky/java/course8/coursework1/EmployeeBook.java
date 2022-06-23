@@ -183,10 +183,10 @@ public class EmployeeBook {
 
     public void increaseSalaryDepartment(int numberDepartment, double percent) {
         for (Employee employee : EMPLOYEES) {
+            if (employee == null) {
+                continue;
+            }
             if (numberDepartment == employee.getDepartmentName()) {
-                if (employee == null) {
-                    continue;
-                }
                 double increase = employee.getSalary() + employee.getSalary() * (percent / 100);
                 employee.setSalary(increase);
             }
@@ -206,10 +206,10 @@ public class EmployeeBook {
 
     public void searchEmployeeWithMinParameter(double parameter) {
         for (Employee employee : EMPLOYEES) {
+            if (employee == null) {
+                continue;
+            }
             if (parameter > employee.getSalary()) {
-                if (employee == null) {
-                    continue;
-                }
                 System.out.println(employee.DepartmentInfo());
             }
         }
@@ -217,10 +217,10 @@ public class EmployeeBook {
 
     public void searchEmployeeWithMaxParameter(double parameter) {
         for (Employee employee : EMPLOYEES) {
+            if (employee == null) {
+                continue;
+            }
             if (parameter < employee.getSalary()) {
-                if (employee == null) {
-                    continue;
-                }
                 System.out.println(employee.DepartmentInfo());
             }
         }
