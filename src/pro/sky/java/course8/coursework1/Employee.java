@@ -1,5 +1,7 @@
 package pro.sky.java.course8.coursework1;
 
+import java.util.Objects;
+
 public class Employee {
     private String surname;
     private String name;
@@ -19,7 +21,17 @@ public class Employee {
     }
 
     public String getFio() {
-        return surname + " " + name +  " " + secondName;
+        return surname + " " + name + " " + secondName;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+    public String getName() {
+        return name;
+    }
+    public String getSecondName() {
+        return secondName;
     }
 
     public int getDepartmentName() {
@@ -34,11 +46,17 @@ public class Employee {
         return id;
     }
 
+    public void setFio(String surname, String name, String secondName) {
+        this.surname = surname;
+        this.name = name;
+        this.secondName = secondName;
+    }
+
     public void setDepartmentName(int departmentName) {
-        if (departmentName > 0 && departmentName < 6) {
+        if (departmentName >= 0 && departmentName < 6) {
             this.departmentName = departmentName;
         } else {
-            System.out.println("Неправильный номер отдела. Номера отделов могут быть только от 1 до 5");
+            throw new IllegalArgumentException("Неправильный номер отдела. Номера отделов могут быть только от 1 до 5");
         }
     }
 
@@ -52,7 +70,22 @@ public class Employee {
                 ". Id: " + id + ". Номер отдела: " + departmentName + ". Оклад: " + salary + ".";
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Employee)) return false;
+        Employee employee = (Employee) o;
+        return surname.equals(employee.surname) && name.equals(employee.name) && secondName.equals(employee.secondName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
     public String DepartmentInfo() {
         return "Сотрудник - ФИО: " + surname + " " + name + " " + secondName + ". Id: " + id + ". Оклад: " + salary + ".";
     }
+
+
 }
